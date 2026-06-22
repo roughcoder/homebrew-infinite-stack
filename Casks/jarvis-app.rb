@@ -1,6 +1,6 @@
 cask "jarvis-app" do
-  version "0.2.12"
-  sha256 "5467b7212592c23f55582727525c675ae7ed298ea990582fe546175dc6af69b7"
+  version "0.2.13"
+  sha256 "118a6598cfcdc85802c4b30605c9af4475db21ef190103882d9c877e0209ec39"
 
   url "https://github.com/roughcoder/jarvis-apple/releases/download/v#{version}/Jarvis-macos.zip"
   name "Jarvis"
