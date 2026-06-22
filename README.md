@@ -14,7 +14,7 @@ Runtime formula:
 
 ```bash
 brew tap roughcoder/infinite-stack
-brew install --HEAD jarvis
+brew install jarvis
 jarvis service install brain
 jarvis service install worker
 jarvis service install intercom
@@ -32,10 +32,13 @@ Upgrade:
 
 ```bash
 brew update
-brew upgrade --fetch-HEAD jarvis
+brew upgrade jarvis
 brew upgrade --cask jarvis-app
 xattr -dr com.apple.quarantine /Applications/Jarvis.app
 ```
 
 The quarantine removal is needed while Jarvis is ad-hoc signed instead of
 Developer ID signed and notarized.
+
+For runtime development builds, use `brew install --HEAD jarvis` or
+`brew upgrade --fetch-HEAD jarvis`.
