@@ -1,8 +1,8 @@
 class Jarvis < Formula
   desc "Local-first Jarvis voice assistant runtime"
   homepage "https://github.com/roughcoder/jarvis"
-  url "https://github.com/roughcoder/jarvis/releases/download/v0.1.1/jarvis-0.1.1.tar.gz"
-  sha256 "09c7c919253e33b9d884ba0ec07fdec9641881813fbe8ac28c99a9d30b22f8bf"
+  url "https://github.com/roughcoder/jarvis/releases/download/v0.1.2/jarvis-0.1.2.tar.gz"
+  sha256 "8fd757c1b4b6b2111e184abec58403ef63687cdd465df1bd5a8895da5aab5660"
   head "https://github.com/roughcoder/jarvis.git", branch: "main"
 
   depends_on "python@3.12"
