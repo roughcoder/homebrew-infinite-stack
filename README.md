@@ -15,6 +15,7 @@ Runtime formula:
 ```bash
 brew tap roughcoder/infinite-stack
 brew install jarvis
+jarvis service sync brain worker intercom
 jarvis service install brain
 jarvis service install worker
 jarvis service install intercom
@@ -33,6 +34,7 @@ Upgrade:
 ```bash
 brew update
 brew upgrade jarvis
+jarvis service sync brain worker intercom
 brew upgrade --cask jarvis-app
 xattr -dr com.apple.quarantine /Applications/Jarvis.app
 ```
