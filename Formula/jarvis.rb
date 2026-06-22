@@ -1,8 +1,8 @@
 class Jarvis < Formula
   desc "Local-first Jarvis voice assistant runtime"
   homepage "https://github.com/roughcoder/jarvis"
-  url "https://github.com/roughcoder/jarvis/releases/download/v0.1.5/jarvis-0.1.5.tar.gz"
-  sha256 "0c094c97f3c1d23ceed193561bd7f964045d20e756a097a59ea21c4f21156b00"
+  url "https://github.com/roughcoder/jarvis/releases/download/v0.1.6/jarvis-0.1.6.tar.gz"
+  sha256 "41d87fef6562839382319b3f295c8de47934f6bf3aeedc510b11b364c0078b33"
   head "https://github.com/roughcoder/jarvis.git", branch: "main"
 
   depends_on "python@3.12"
@@ -12,16 +12,7 @@ class Jarvis < Formula
     libexec.install Dir["*"]
 
     cd libexec do
-      system Formula["uv"].opt_bin/"uv", "sync", "--no-dev",
-             "--extra", "gateway",
-             "--extra", "tts",
-             "--extra", "stt",
-             "--extra", "vad",
-             "--extra", "wake",
-             "--extra", "memory",
-             "--extra", "worker",
-             "--extra", "mcp",
-             "--extra", "browser"
+      system formula_opt_bin("uv")/"uv", "sync", "--no-dev"
     end
 
     (libexec/"bin").mkpath
@@ -29,7 +20,7 @@ class Jarvis < Formula
       #!/usr/bin/env bash
       set -euo pipefail
       cd "#{libexec}"
-      exec "#{Formula["uv"].opt_bin}/uv" run jarvis "$@"
+      exec "#{formula_opt_bin("uv")}/uv" run jarvis "$@"
     SH
     chmod 0755, libexec/"bin/jarvis"
 
@@ -41,8 +32,11 @@ class Jarvis < Formula
       Jarvis runtime is installed as the `jarvis` command.
 
       Install local services with:
+        jarvis service sync brain
         jarvis service install brain
+        jarvis service sync worker
         jarvis service install worker
+        jarvis service sync intercom
         jarvis service install intercom
 
     EOS
