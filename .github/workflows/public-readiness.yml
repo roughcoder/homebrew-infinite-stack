@@ -1,0 +1,38 @@
+name: Public readiness
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject private cask distribution patterns
+        run: |
+          set -euo pipefail
+          hits="$(
+            git grep -IlE '(api\.github\.com/repos/.+/releases/assets|HOMEBREW_GITHUB_API_TOKEN|private GitHub release|private testing phase)' -- ':!.github/workflows/public-readiness.yml' \
+              || true
+          )"
+          if [[ -n "$hits" ]]; then
+            echo "Private-release Homebrew patterns found:"
+            echo "$hits"
+            exit 1
+          fi
+      - name: Reject checked-in secret values
+        run: |
+          set -euo pipefail
+          hits="$(
+            git ls-files \
+              | xargs grep -IlE '(ghp_|github_pat_|sk-[A-Za-z0-9]{20,}|BEGIN (RSA|OPENSSH|PRIVATE) KEY)' \
+              || true
+          )"
+          if [[ -n "$hits" ]]; then
+            echo "Possible checked-in secret values:"
+            echo "$hits"
+            exit 1
+          fi

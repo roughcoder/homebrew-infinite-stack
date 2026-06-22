@@ -1,0 +1,18 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  brew:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register local tap
+        run: brew tap roughcoder/infinite-stack "$PWD" --custom-remote
+      - name: Style
+        run: brew style Formula/jarvis.rb Casks/jarvis-app.rb
+      - name: Audit cask
+        run: brew audit --cask roughcoder/infinite-stack/jarvis-app
