@@ -28,8 +28,9 @@ cask "jarvis-app" do
       brew trust --tap roughcoder/infinite-stack
       export HOMEBREW_GITHUB_API_TOKEN="$(gh auth token)"
 
-    Until Jarvis has Developer ID signing and notarization, install with:
+    Until Jarvis has Developer ID signing and notarization, clear quarantine
+    after install or upgrade:
 
-      brew install --cask --no-quarantine jarvis-app
+      /usr/bin/xattr -dr com.apple.quarantine "#{appdir}/Jarvis.app"
   EOS
 end
