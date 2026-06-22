@@ -1,6 +1,8 @@
 class Jarvis < Formula
   desc "Local-first Jarvis voice assistant runtime"
   homepage "https://github.com/roughcoder/jarvis"
+  url "https://github.com/roughcoder/jarvis/releases/download/v0.1.0/jarvis-0.1.0.tar.gz"
+  sha256 "a70a8ff069578a56ec120acb06d7d302f289d13227d87c6554bc16bda7620c43"
   head "https://github.com/roughcoder/jarvis.git", branch: "main"
 
   depends_on "python@3.12"
@@ -43,8 +45,6 @@ class Jarvis < Formula
         jarvis service install worker
         jarvis service install intercom
 
-      The formula currently tracks HEAD while the runtime public release and
-      versioned tarball flow are being prepared.
     EOS
   end
 
