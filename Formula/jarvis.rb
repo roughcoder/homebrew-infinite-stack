@@ -10,9 +10,9 @@ class Jarvis < Formula
 
   def install
     libexec.install Dir["*"]
-    readme = buildpath/"README.md"
-    rm libexec/"README.md" if (libexec/"README.md").exist?
-    (libexec/"README.md").write(readme.exist? ? readme.read : "Jarvis runtime\n")
+    inreplace libexec/"pyproject.toml",
+              'readme = "README.md"',
+              'readme = { text = "Jarvis runtime", content-type = "text/markdown" }'
 
     cd libexec do
       system formula_opt_bin("uv")/"uv", "sync", "--no-dev", "--no-editable"
