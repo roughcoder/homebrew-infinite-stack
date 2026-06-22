@@ -11,6 +11,7 @@ class Jarvis < Formula
   def install
     libexec.install Dir["*"]
     readme = buildpath/"README.md"
+    rm libexec/"README.md" if (libexec/"README.md").exist?
     (libexec/"README.md").write(readme.exist? ? readme.read : "Jarvis runtime\n")
 
     cd libexec do
