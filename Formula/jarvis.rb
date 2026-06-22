@@ -20,7 +20,7 @@ class Jarvis < Formula
       #!/usr/bin/env bash
       set -euo pipefail
       cd "#{libexec}"
-      exec "#{formula_opt_bin("uv")}/uv" run jarvis "$@"
+      exec "#{formula_opt_bin("uv")}/uv" run --no-sync jarvis "$@"
     SH
     chmod 0755, libexec/"bin/jarvis"
 
