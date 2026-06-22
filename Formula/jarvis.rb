@@ -10,6 +10,7 @@ class Jarvis < Formula
 
   def install
     libexec.install Dir["*"]
+    (libexec/"README.md").write((buildpath/"README.md").read)
 
     cd libexec do
       system formula_opt_bin("uv")/"uv", "sync", "--no-dev", "--no-editable"
