@@ -12,7 +12,7 @@ class Jarvis < Formula
     libexec.install Dir["*"]
 
     cd libexec do
-      system formula_opt_bin("uv")/"uv", "sync", "--no-dev"
+      system formula_opt_bin("uv")/"uv", "sync", "--no-dev", "--no-editable"
     end
 
     (libexec/"bin").mkpath
@@ -20,6 +20,7 @@ class Jarvis < Formula
       #!/usr/bin/env bash
       set -euo pipefail
       cd "#{libexec}"
+      export UV_NO_EDITABLE="${UV_NO_EDITABLE:-1}"
       exec "#{formula_opt_bin("uv")}/uv" run --no-sync jarvis "$@"
     SH
     chmod 0755, libexec/"bin/jarvis"
