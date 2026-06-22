@@ -17,3 +17,5 @@ jobs:
         run: brew style Formula/jarvis.rb Casks/jarvis-app.rb
       - name: Audit cask
         run: brew audit --cask roughcoder/infinite-stack/jarvis-app
+      - name: Audit formula
+        run: brew audit --formula roughcoder/infinite-stack/jarvis
