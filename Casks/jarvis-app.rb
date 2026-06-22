@@ -1,8 +1,8 @@
 cask "jarvis-app" do
-  version "0.2.2"
-  sha256 "65d29c055b87774e1060d6f20052b3383a50e1f03c8dfe8700b31bbef62fde7a"
+  version "0.2.3"
+  sha256 "252405fb54bc1a3f780ace0d52597f66bd4089f0d1ff1a5ac4f7c4158349d8af"
 
-  url "https://api.github.com/repos/roughcoder/jarvis-apple/releases/assets/454598933?version=#{version}",
+  url "https://api.github.com/repos/roughcoder/jarvis-apple/releases/assets/454642091?version=#{version}",
       header: [
         "Accept: application/octet-stream",
         "Authorization: Bearer #{ENV.fetch("HOMEBREW_GITHUB_API_TOKEN", nil)}",
