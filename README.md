@@ -4,6 +4,12 @@ Homebrew tap for Infinite Stack tools.
 
 ## Jarvis
 
+Fresh Mac bootstrap:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/roughcoder/jarvis/main/scripts/install_mac.sh | bash
+```
+
 Runtime formula:
 
 ```bash
