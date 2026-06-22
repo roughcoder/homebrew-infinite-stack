@@ -26,7 +26,7 @@ Upgrade:
 
 ```bash
 brew update
-brew upgrade jarvis
+brew upgrade --fetch-HEAD jarvis
 brew upgrade --cask jarvis-app
 xattr -dr com.apple.quarantine /Applications/Jarvis.app
 ```
