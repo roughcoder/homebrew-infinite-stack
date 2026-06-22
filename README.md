@@ -6,6 +6,7 @@ Private Homebrew tap for Infinite Stack tools.
 
 ```bash
 brew tap roughcoder/infinite-stack git@github.com:roughcoder/homebrew-infinite-stack.git
+brew trust --tap roughcoder/infinite-stack
 export HOMEBREW_GITHUB_API_TOKEN="$(gh auth token)"
 brew install --cask --no-quarantine jarvis-app
 ```
@@ -13,6 +14,7 @@ brew install --cask --no-quarantine jarvis-app
 Upgrade:
 
 ```bash
+brew trust --tap roughcoder/infinite-stack
 export HOMEBREW_GITHUB_API_TOKEN="$(gh auth token)"
 brew upgrade --cask jarvis-app
 ```

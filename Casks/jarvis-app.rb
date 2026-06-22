@@ -22,8 +22,10 @@ cask "jarvis-app" do
 
   caveats <<~EOS
     Jarvis is currently distributed from a private GitHub release.
-    Before installing or upgrading, expose a token with repo read access:
+    Before installing or upgrading, trust the tap and expose a token with repo
+    read access:
 
+      brew trust --tap roughcoder/infinite-stack
       export HOMEBREW_GITHUB_API_TOKEN="$(gh auth token)"
 
     Until Jarvis has Developer ID signing and notarization, install with:
