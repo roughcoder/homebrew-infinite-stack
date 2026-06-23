@@ -16,6 +16,12 @@ xattr -dr com.apple.quarantine /Applications/Jarvis.app
 open -a Jarvis
 ```
 
+Clean reset for fresh install testing:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/roughcoder/jarvis/main/scripts/uninstall_mac.sh | bash
+```
+
 Runtime formula:
 
 ```bash
