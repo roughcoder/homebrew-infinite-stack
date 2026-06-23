@@ -17,6 +17,7 @@ class Jarvis < Formula
     cd libexec do
       system formula_opt_bin("uv")/"uv", "sync", "--no-dev", "--no-editable"
     end
+    prune_non_native_porcupine_libs
 
     (libexec/"bin").mkpath
     (libexec/"bin/jarvis").write <<~SH
@@ -48,5 +49,17 @@ class Jarvis < Formula
 
   test do
     assert_match "jarvis", shell_output("#{bin}/jarvis --version")
+  end
+
+  def prune_non_native_porcupine_libs
+    return unless OS.mac?
+
+    native_arch = Hardware::CPU.arm? ? "arm64" : "x86_64"
+    mac_libs = libexec/".venv/lib/python3.12/site-packages/pvporcupine/lib/mac"
+    return unless mac_libs.directory?
+
+    mac_libs.children.each do |path|
+      rm_r path if path.directory? && path.basename.to_s != native_arch
+    end
   end
 end
