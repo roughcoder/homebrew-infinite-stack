@@ -7,13 +7,7 @@ Homebrew tap for Infinite Stack tools.
 Fresh Mac install:
 
 ```bash
-brew tap roughcoder/infinite-stack
-brew trust --formula roughcoder/infinite-stack/jarvis
-brew trust --cask roughcoder/infinite-stack/jarvis-app
-brew install jarvis
-brew install --cask jarvis-app
-xattr -dr com.apple.quarantine /Applications/Jarvis.app
-open -a Jarvis
+curl -fsSL https://raw.githubusercontent.com/roughcoder/jarvis/main/scripts/install_mac.sh | bash
 ```
 
 Clean reset for fresh install testing:
