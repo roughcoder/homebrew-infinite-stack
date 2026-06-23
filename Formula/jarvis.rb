@@ -3,7 +3,7 @@ class Jarvis < Formula
   homepage "https://github.com/roughcoder/jarvis"
   url "https://github.com/roughcoder/jarvis/releases/download/v0.1.21/jarvis-0.1.21.tar.gz"
   sha256 "8ae6c1d3af302b2fd9aad886573e32f3c57982064a253a94cff4ca1de9486074"
-  revision 1
+  revision 2
   head "https://github.com/roughcoder/jarvis.git", branch: "main"
 
   depends_on "python@3.12"
@@ -25,7 +25,8 @@ class Jarvis < Formula
       #!/usr/bin/env bash
       set -euo pipefail
       export UV_NO_EDITABLE="${UV_NO_EDITABLE:-1}"
-      exec "#{formula_opt_bin("uv")}/uv" --project "#{libexec}" run --no-sync jarvis "$@"
+      export UV_PROJECT="#{libexec}"
+      exec "#{formula_opt_bin("uv")}/uv" run --no-sync jarvis "$@"
     SH
     chmod 0755, libexec/"bin/jarvis"
 
