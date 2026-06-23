@@ -7,7 +7,7 @@ Homebrew tap for Infinite Stack tools.
 Fresh Mac bootstrap:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/roughcoder/jarvis/v0.1.19/scripts/install_mac.sh | bash
+curl -fsSL https://raw.githubusercontent.com/roughcoder/jarvis/v0.1.20/scripts/install_mac.sh | bash
 ```
 
 Runtime formula:
