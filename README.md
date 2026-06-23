@@ -14,6 +14,7 @@ Runtime formula:
 
 ```bash
 brew tap roughcoder/infinite-stack
+brew trust --formula roughcoder/infinite-stack/jarvis
 brew install jarvis
 jarvis service sync brain worker intercom
 jarvis service install brain
@@ -25,6 +26,7 @@ Native macOS app:
 
 ```bash
 brew tap roughcoder/infinite-stack
+brew trust --cask roughcoder/infinite-stack/jarvis-app
 brew install --cask jarvis-app
 xattr -dr com.apple.quarantine /Applications/Jarvis.app
 ```
@@ -33,6 +35,8 @@ Upgrade:
 
 ```bash
 brew update
+brew trust --formula roughcoder/infinite-stack/jarvis
+brew trust --cask roughcoder/infinite-stack/jarvis-app
 brew upgrade jarvis
 jarvis service sync brain worker intercom
 brew upgrade --cask jarvis-app
