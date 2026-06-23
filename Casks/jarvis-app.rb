@@ -7,6 +7,7 @@ cask "jarvis-app" do
   desc "Observe and safely control local Jarvis roles"
   homepage "https://github.com/roughcoder/jarvis-apple"
 
+  depends_on formula: "jarvis"
   depends_on macos: :sonoma
 
   app "Jarvis.app"
