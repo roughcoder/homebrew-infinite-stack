@@ -15,6 +15,7 @@ class Jarvis < Formula
               'readme = { text = "Jarvis runtime", content-type = "text/markdown" }'
 
     cd libexec do
+      ENV["UV_PYTHON"] = (formula_opt_bin("python@3.12")/"python3.12").to_s
       system formula_opt_bin("uv")/"uv", "sync", "--no-dev", "--no-editable"
     end
     prune_non_native_porcupine_libs
