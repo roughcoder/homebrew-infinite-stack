@@ -23,9 +23,8 @@ class Jarvis < Formula
     (libexec/"bin/jarvis").write <<~SH
       #!/usr/bin/env bash
       set -euo pipefail
-      export UV_NO_EDITABLE="${UV_NO_EDITABLE:-1}"
-      export UV_PROJECT="#{libexec}"
-      exec "#{formula_opt_bin("uv")}/uv" run --no-sync jarvis "$@"
+      export PYTHONPATH="#{libexec}/src${PYTHONPATH:+:$PYTHONPATH}"
+      exec "#{libexec}/.venv/bin/python" -m jarvis.cli "$@"
     SH
     chmod 0755, libexec/"bin/jarvis"
 
