@@ -1,8 +1,8 @@
 class Jarvis < Formula
   desc "Local-first Jarvis voice assistant runtime"
   homepage "https://github.com/roughcoder/jarvis"
-  url "https://github.com/roughcoder/jarvis/releases/download/v0.5.2/jarvis-0.5.2.tar.gz"
-  sha256 "9108964ecf76bbd394a280afbaf4f08804eec44182bf9121b61078505ce16376"
+  url "https://github.com/roughcoder/jarvis/releases/download/v0.5.3/jarvis-0.5.3.tar.gz"
+  sha256 "e2da90e676316466f85b63d78a631c616d22f785b2bee01bfc8043a8ffb237e9"
   head "https://github.com/roughcoder/jarvis.git", branch: "main"
 
   depends_on "python@3.12"
@@ -15,6 +15,7 @@ class Jarvis < Formula
               'readme = { text = "Jarvis runtime", content-type = "text/markdown" }'
 
     cd libexec do
+      ENV["UV_PYTHON"] = (formula_opt_bin("python@3.12")/"python3.12").to_s
       ENV["UV_PYTHON"] = (formula_opt_bin("python@3.12")/"python3.12").to_s
       system formula_opt_bin("uv")/"uv", "sync", "--no-dev", "--no-editable"
     end
